@@ -10,8 +10,11 @@
 * Alerts: Notifications for low stock levels and approaching expiration dates.
 
 **Screenshots**
+
 ![image](https://github.com/Dhanya1202/Pharmacy-Management-System/assets/95705962/c518986e-9b17-4b8e-8f80-e20be6467a89)
+
 ![image](https://github.com/Dhanya1202/Pharmacy-Management-System/assets/95705962/e0d98f0f-019e-41ad-8aca-ccfe9294e451)
+
 ![image](https://github.com/Dhanya1202/Pharmacy-Management-System/assets/95705962/0f140532-1e60-4fab-8779-c252993474d5)
 ![image](https://github.com/Dhanya1202/Pharmacy-Management-System/assets/95705962/fbde7c21-3275-4a14-8eb9-720e327f4ace)
 ![image](https://github.com/Dhanya1202/Pharmacy-Management-System/assets/95705962/3d02e317-8a6e-43c4-a6fa-3fd09537887d)
