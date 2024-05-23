@@ -204,7 +204,7 @@ public class Alerts extends javax.swing.JFrame {
         }
 }
     private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
     }
 
 private static String getCurrentTime() {
@@ -215,7 +215,7 @@ private static String getCurrentTime() {
 
  public void displayAlertsFromDatabase() {
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
             // Create a query to retrieve alerts from the database
             String query = "SELECT * FROM alerts";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
@@ -239,7 +239,7 @@ private static String getCurrentTime() {
 
 private void deleteAlert(int row) {
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");       
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");       
             int sno = (int) tableModel.getValueAt(row, tableModel.findColumn("S no.")); // Get the S no. of the alert to be deleted         
             // Construct a query to delete the alert based on the S no.
             String deleteQuery = "DELETE FROM alerts WHERE SNo = ?";
