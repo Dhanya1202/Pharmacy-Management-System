@@ -33,7 +33,7 @@ public class Selling extends javax.swing.JFrame {
     }
     public void ShowMedicineCatalog() {
     try {
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
         st = conn.createStatement();
         rs = st.executeQuery("SELECT ID, MEDNAME, PRICE, QUANTITY, FABDATE, EXPDATE, COMPANY FROM pharmacydb.manage_medicine");
 
@@ -486,7 +486,7 @@ public class Selling extends javax.swing.JFrame {
     }
     try {
         // Establish a database connection
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
         
         // Build the SQL update query
         String queryUpdate = "UPDATE pharmacydb.manage_medicine SET quantity = " + newQty + " WHERE id = " + medId;
@@ -562,7 +562,7 @@ private void insertBillingRecord(BigDecimal totalAmount) {
     // Get the customer ID from your UI or wherever it's stored
     int customerId =  Integer.parseInt(tbCustomerId.getText()); 
 
-    try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna")) {
+    try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass")) {
         // Create a query to insert a new billing record into the billing table
         String insertBillingQuery = "INSERT INTO billing (customerID, transaction_date, total_amount) VALUES (?, NOW(), ?)";
         try (PreparedStatement preparedStatement = conn.prepareStatement(insertBillingQuery, Statement.RETURN_GENERATED_KEYS)) {
