@@ -353,7 +353,7 @@ private void showPrescriptionsForCustomer(int customerId) {
     try {
         // Create a query to retrieve prescriptions and their associated medicine details for the selected customer
         try ( // Establish a database connection
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna")) {
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass")) {
             // Create a query to retrieve prescriptions and their associated medicine details for the selected customer
             String query = "SELECT p.PId, m.MedicineName, m.Dosage, m.DrugType, m.Notes FROM Prescription p "
                     + "LEFT JOIN Prescription_Medicines m ON p.PId = m.PId "
@@ -382,7 +382,7 @@ private void showPrescriptionsForCustomer(int customerId) {
 private void displayCustomerDetails(int customerId) {
     try {
         // Establish a database connection
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
         String query = "SELECT Name FROM manage_customer WHERE ID = ?";
         PreparedStatement preparedStatement = conn.prepareStatement(query);
         preparedStatement.setInt(1, customerId);
@@ -410,7 +410,7 @@ private void populatePresListContent(int customerId) {
     
     try {
         // Establish a database connection
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
         String query = "SELECT PId FROM Prescription WHERE CId = ?";
         PreparedStatement preparedStatement = conn.prepareStatement(query);
         preparedStatement.setInt(1, customerId);
@@ -458,7 +458,7 @@ dosageTextField.setText("");
 
     try {
         // Establish a database connection
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
 
         // Create a query to update the prescription details in the Prescription_Medicines table
         String updatePrescriptionMedicineQuery = "UPDATE Prescription_Medicines SET Dosage = ?, DrugType = ?, Notes = ? WHERE PId = ? AND MedicineName = ?";
@@ -495,7 +495,7 @@ private void refreshTable() {
     if (selectedPrescriptionId != null) {
         // Fetch and populate the table data for the selected prescription
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
             String query = "SELECT MedicineName, Dosage, DrugType, Notes FROM Prescription_Medicines WHERE PId = ?";
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setInt(1, Integer.parseInt(selectedPrescriptionId));
@@ -522,7 +522,7 @@ private void refreshTable() {
        
     try {
         // Establish a database connection
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
 
         String checkCustomerQuery = "SELECT ID FROM manage_customer WHERE ID = ?";
         PreparedStatement checkCustomerStatement = conn.prepareStatement(checkCustomerQuery);
@@ -592,7 +592,7 @@ private void refreshTable() {
     // Update the database with the new entry
     try {
         // Establish a database connection
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
 
         // Create a query to insert the new entry into the Prescription_Medicines table
         String addEntryQuery = "INSERT INTO Prescription_Medicines (PId, MedicineName, Dosage, DrugType, Notes) VALUES (?, ?, ?, ?, ?)";
@@ -624,7 +624,7 @@ private void refreshTable() {
         String selectedPrescriptionId = PresListContent.getSelectedValue();
         if (selectedPrescriptionId != null) {
             try {
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
                 String query = "SELECT MedicineName, Dosage, DrugType, Notes FROM Prescription_Medicines WHERE PId = ?";
                 PreparedStatement preparedStatement = conn.prepareStatement(query);
                 preparedStatement.setInt(1, Integer.parseInt(selectedPrescriptionId));
@@ -672,7 +672,7 @@ private void refreshTable() {
 
     try {
         // Establish a database connection
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
 
         // Create a query to delete the row from the Prescription_Medicines table
         String deleteQuery = "DELETE FROM Prescription_Medicines WHERE PId = ? AND MedicineName = ?";
@@ -701,7 +701,7 @@ private void refreshTable() {
         String prescriptionId=PresListContent.getSelectedValue();
         try {
         // Establish a database connection
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
         
         // Start a transaction
         conn.setAutoCommit(false);
