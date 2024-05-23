@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package pharmacymanagementsystem;
 
 import java.sql.Connection;
@@ -391,7 +387,7 @@ public class Company extends javax.swing.JFrame {
     public void GetAllCompanies()
     {
         try {
-           conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb","root","kishoremyna");
+           conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb","root","pass");
            st = conn.createStatement();
            rs = st.executeQuery("Select * from pharmacydb.manage_company");
            CompanyTable.setModel(DbUtils.resultSetToTableModel(rs));      
@@ -405,7 +401,7 @@ public class Company extends javax.swing.JFrame {
      /* insert new company */
     private void btnAddCompanyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddCompanyMouseClicked
   try {
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
         PreparedStatement ps = conn.prepareStatement("INSERT INTO manage_company (id,name,address, experience, phone) VALUES (?, ?, ?, ?, ?)");
         int generatedId =CompanyIDGenerator.generateUniqueMedicineID();
         // Parse user input
@@ -453,7 +449,7 @@ public class Company extends javax.swing.JFrame {
         else
         {
             try {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb","root","kishoremyna");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb","root","pass");
                 String id = tbCompanyId.getText();
                 String query = "Delete from pharmacydb.manage_company where id = " + id;
                 Statement st = conn.createStatement();
@@ -491,7 +487,7 @@ public class Company extends javax.swing.JFrame {
         else
         {
             try {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb","root","kishoremyna");                
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb","root","pass");                
                 PreparedStatement ps = conn.prepareStatement("update manage_company set name=?, address=?, experience=?, phone=? where id=?");
 
                 ps.setString(1, tbCompanyName.getText());
