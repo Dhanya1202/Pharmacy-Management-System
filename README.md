@@ -1,4 +1,4 @@
-![image](https://github.com/Dhanya1202/Pharmacy-Management-System/assets/95705962/777b5693-b70e-4528-88cd-bb1a9c825b1a)# Pharmacy-Management-System
+# Pharmacy-Management-System
 
 **Tech Stack:** Java , Java Swing
 
