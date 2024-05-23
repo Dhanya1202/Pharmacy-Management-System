@@ -18,7 +18,7 @@ public class DatabaseManager {
     public static Connection getConnection() throws SQLException {
         if (conn == null || conn.isClosed()) {
             // Initialize and return your database connection
-            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+            conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
         }
         return conn;
     }
