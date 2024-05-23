@@ -411,7 +411,7 @@ public class Customer extends javax.swing.JFrame {
     public void GetAllCustomers()
     {
         try {
-           conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+           conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
            st = conn.createStatement();
            rs = st.executeQuery("Select * from pharmacydb.manage_customer");
            CustomersTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -427,7 +427,7 @@ public class Customer extends javax.swing.JFrame {
      /* insert new customer */
     private void btnAddCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddCustomerMouseClicked
        try {
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
         
         // Check if the customer ID already exists (assuming "manage_customer" has an "id" field as the primary key)
         //int customerId = Integer.parseInt(tbCustomerId.getText());
@@ -461,7 +461,7 @@ public class Customer extends javax.swing.JFrame {
     }
         /*
            try {          
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
             PreparedStatement ps = conn.prepareStatement("insert into manage_customer values(?,?,?,?,?,?)");
             
             ps.setInt(1, Integer.parseInt(tbCustomerId.getText()));
@@ -515,7 +515,7 @@ private boolean isCustomerIdExists(int customerId) throws SQLException {
         else
         {
             try {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
                 String id = tbCustomerId.getText();
                 String query = "Delete from pharmacydb.manage_customer where id = " + id;
                 Statement st = conn.createStatement();
@@ -552,7 +552,7 @@ private boolean isCustomerIdExists(int customerId) throws SQLException {
     } else {
         try {
             int customerId = Integer.parseInt(tbCustomerId.getText());
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
 
             // Check if the customer exists before updating
             if (!isCustomerExists(customerId)) {
@@ -591,7 +591,7 @@ private boolean isCustomerIdExists(int customerId) throws SQLException {
         else
         {
             try {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
                 PreparedStatement ps = conn.prepareStatement("update manage_customer set name=?, age=?, phone=?,gender=? ,address=? where id=?");
 
                 ps.setString(1, tbCustomerName.getText());
