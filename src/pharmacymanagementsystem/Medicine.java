@@ -436,7 +436,7 @@ public class Medicine extends javax.swing.JFrame {
     public void GetAllMedicines()
     {
         try {
-           conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+           conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
            st = conn.createStatement();
            rs = st.executeQuery("Select * from pharmacydb.manage_medicine");
            MedicineTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -452,7 +452,7 @@ public class Medicine extends javax.swing.JFrame {
     {
         try {
               
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
            st = conn.createStatement();
            rs = st.executeQuery("Select * from pharmacydb.manage_company");
            
@@ -486,7 +486,7 @@ public class Medicine extends javax.swing.JFrame {
         double price = Double.parseDouble(tbMedPrice.getText());
 
         // Establish a connection
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass")) {
             // Prepare the SQL statement
             String sql = "INSERT INTO manage_medicine (MEDNAME, PRICE, QUANTITY, FABDATE, EXPDATE, COMPANY,ID) VALUES (?, ?, ?, ?, ?, ?,?)";
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -528,7 +528,7 @@ public class Medicine extends javax.swing.JFrame {
 
     try {
         // Establish a connection
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass")) {
             String deleteQuery = "DELETE FROM manage_medicine WHERE ID = ?";
             
             // Prepare the SQL statement with a parameter
@@ -575,7 +575,7 @@ public class Medicine extends javax.swing.JFrame {
         else
         {
             try {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "kishoremyna");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacydb", "root", "pass");
                 String id = tbMedId.getText();
                 fabDate = dpFabDate.getDate();
                 myFabDate = new java.sql.Date(fabDate.getTime());
