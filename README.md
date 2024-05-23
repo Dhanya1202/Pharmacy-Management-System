@@ -10,3 +10,14 @@
 * Alerts: Notifications for low stock levels and approaching expiration dates.
 
 
+
+
+
+
+
+
+
+
+
+
+Disclaimer: The initial idea was obtained from anjat99 and the project was further developed by us.
